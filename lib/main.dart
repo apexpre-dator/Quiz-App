@@ -23,7 +23,7 @@ class MyAppState extends State<MyApp> {
       'answers': ['1', '2', '3', '4'],
     },
     {
-      'questionText': 'How many stars will you rate it?',
+      'questionText': 'How many stars will you rate it->',
       'answers': ['1', '2', '3', '4', '5'],
     },
   ];

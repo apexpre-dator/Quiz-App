@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './question.dart';
-import './answer.dart';
+import './quiz.dart';
+import './result.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +23,7 @@ class MyAppState extends State<MyApp> {
       'answers': ['1', '2', '3', '4'],
     },
     {
-      'questionText': 'How many stars will you rate it->',
+      'questionText': 'How many stars will you rate it?',
       'answers': ['1', '2', '3', '4', '5'],
     },
   ];
@@ -43,22 +43,12 @@ class MyAppState extends State<MyApp> {
           title: Text('App1'),
         ),
         body: questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(
-                    questions[questionIndex]['questionText'] as String,
-                  ),
-                  ...(questions[questionIndex]['answers'] as List<String>)
-                      .map((answer) {
-                    return Answer(answerQuestion, answer);
-                  }).toList()
-                ],
+            ? Quiz(
+                answerQuestion: answerQuestion,
+                questionIndex: questionIndex,
+                questions: questions,
               )
-            : Center(
-                child: Text(
-                  'Thanks for your feedback!',
-                ),
-              ),
+            : Result(),
       ),
     );
   }
